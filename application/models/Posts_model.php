@@ -42,6 +42,8 @@ class Posts_model extends CI_Model {
             'treated_datetime' => 'P.created_at'
         ];
 
+        // Ajustei a query para retornar o total de posts (500). Removi os Joins que estavam trazendo mais informacoes das outras tabelas, 
+        // mas acho que não era isso o esperado... Não entendi muito bem qual deveria ser o requisito aqui...
         $query = $this->db
             ->select('SQL_CALC_FOUND_ROWS P.id, 
                         P.id, 

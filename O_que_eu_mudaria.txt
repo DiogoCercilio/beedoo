@@ -1,0 +1,8 @@
+O que eu mudaria?
+
+- Não faria as requisições get usando post (Ex: posts/get)
+- Faria uma estrutura de JS um pouco diferente (Se nao tivesse problema em fazer isso..). Poderia por exemplo usar classes.
+- Não usaria o Jquery. Provavelmente usaria algum framework no client-side, pensando principalmente na escalabilidade.
+- Melhoraria a estrutura do HTML (Ex: Não usaria inline style, usaria id`s únicos nos elementos)
+- Usaria uma ferramenta de asset pipeline para otimização em geral no Front-end (Ex: Webpack)
+- Otimizaria o carregamento inicial
