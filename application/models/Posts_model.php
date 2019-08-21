@@ -36,10 +36,10 @@ class Posts_model extends CI_Model {
      */
     public function getDatatablesList($limit = null, $offset = 0)
     {
-        // Col names by alias, used to order by colName, not alias, because
-        // doesn't work when this is a datetime column
         $orderable = [
-            'fullname' => 'name',
+            'id' => 'id',
+            'title' => 'title',
+            'treated_datetime' => 'P.created_at'
         ];
 
         $query = $this->db
@@ -49,9 +49,6 @@ class Posts_model extends CI_Model {
                         DATE_FORMAT(P.created_at, \'%d/%m/%Y %H:%i\') as treated_datetime,'
                 , false)
             ->join('users AS U', 'P.user_id = U.id', 'inner')
-            ->join('user_has_groups AS UG', 'UG.user_id = U.id', 'left')
-            ->join('groups G', 'G.id = UG.group_id', 'left')
-            ->join('teams AS T', 'G.team_id = T.id', 'left')
             ->from('posts AS P');
 
         //Ao filtrar por "todos" no datatables, ele envia -1
@@ -60,7 +57,7 @@ class Posts_model extends CI_Model {
                 ->limit($limit)
                 ->offset($offset);
         }
-
+        
         $this->datatablesQuery($query, [], $orderable);
         $result = $query->get()->result();
         $foundRows = $this->db->select('FOUND_ROWS() as found_rows')->get()->result_array()[0]['found_rows'];
