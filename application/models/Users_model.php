@@ -40,10 +40,10 @@ class Users_model extends CI_Model {
      */
     public function getDatatablesList($limit = null, $offset = 0)
     {
-        // Col names by alias, used to order by colName, not alias, because
-        // doesn't work when this is a datetime column
         $orderable = [
-            'fullname' => 'name',
+            'id' => 'id',
+            'name' => 'name',
+            'treated_datetime' => 'created_at',
         ];
 
         $query = $this->db
@@ -51,7 +51,7 @@ class Users_model extends CI_Model {
             ->from('users')
         ;
 
-        //Ao filtrar por "todos" no datatables, ele envia -1
+        //Ao filtrar por "todos" no datatables, ele envia -1           ???
         if ( $limit > 0 ) {
             $query
                 ->limit($limit)
