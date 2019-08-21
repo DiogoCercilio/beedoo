@@ -13,7 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <?php require_once 'partials/menu.php' ?>
     </div>
 
-    <table id="table" class="table">
+    <table id="table-user" class="table">
         <thead>
         <tr>
             <th data-id="id" data-width="40px">ID do usuário</th>

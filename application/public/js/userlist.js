@@ -1,6 +1,6 @@
 function UserList() {
     this.init = function () {
-        this.$dtable = new BeedooDatatable('#table', '/users/get', {});
+        this.$dtable = new BeedooDatatable('#table-user', '/users/get', {});
         this.$dtable.init();
         console.log(this.$dtable);
     }
